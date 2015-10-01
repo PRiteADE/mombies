@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<title>Mombies Quiz Nightmare Edition</title>
+<link rel="stylesheet" href="css/style.css"/>    
+</head>
+<body>
+
+    
+<div class="row center">
+<h1>What Kind of Mombie are you?</h1>
+<p>Hey, answer the question loser.</p>    
+</div>    
+    
+<section class="quiz">
+<div class="row question current">
+<h2>1. Here is the question, what is the answer?</h2>
+<label class="answer"><input type="radio" name="1" data-value="5"/> Answer me this</label>    
+<label class="answer"><input type="radio" name="1" data-value="10"/> Answer me that</label>    
+<label class="answer"><input type="radio" name="1" data-value="15"/> Answer me more than that</label>    
+</div>
+    
+<div class="row question">
+<h2>2. Here is the question, what is the answer?</h2>
+<label class="answer"><input type="radio" name="2"  data-value="5"/> Answer me this</label>    
+<label class="answer"><input type="radio" name="2"  data-value="10"/> Answer me that</label>    
+<label class="answer"><input type="radio" name="2"  data-value="15"/> Answer me more than that</label>    
+</div>
+    
+<div class="row question">
+<h2>3. Here is the question, what is the answer?</h2>
+<label class="answer"><input type="radio" name="3" data-value="5"/> Answer me this</label>    
+<label class="answer"><input type="radio" name="3" data-value="10"/> Answer me that</label>    
+<label class="answer"><input type="radio" name="3" data-value="15"/> Answer me more than that</label>    
+</div>
+    
+<div class="row question">
+<h2>4. Here is the question, what is the answer?</h2>
+<label class="answer"><input type="radio" name="4" data-value="5"/> Answer me this</label>    
+<label class="answer"><input type="radio" name="4" data-value="10"/> Answer me that</label>    
+<label class="answer"><input type="radio" name="4" data-value="15"/> Answer me more than that</label>    
+</div>
+    
+<div class="row question">
+<h2>5. Here is the question, what is the answer?</h2>
+<label class="answer"><input type="radio" name="5" data-value="5"/> Answer me this</label>    
+<label class="answer"><input type="radio" name="5" data-value="10"/> Answer me that</label>    
+<label class="answer"><input type="radio" name="5" data-value="15"/> Answer me more than that</label>    
+</div>    
+    
+    
+    
+</section>    
+    
+    
+    
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>    
+<script type="text/javascript">
+var score = 0,
+    radio = $('input[type="radio"]'),
+    ques = $('.question');
+    
+    
+    
+    
+    
+$(document).ready(function(){
+ // Mombies Quiz Logic
+    $('.question').each(function(){
+    var step = $(this);
+     step.find('.answer').click(function () {
+        var $this = $(this);
+   
+    if (step.children('.active').length > 0) {
+            var wasActive = step.children('.active');
+            step.children('.active').removeClass('active');
+            $this.addClass('active');
+        } else {
+            $this.addClass('active');
+            updateStep(step);
+        }
+    });
+    });
+    
+    function updateStep($currentStep) {
+    if ($currentStep.hasClass('current')) {
+        $currentStep.removeClass('current');
+        $currentStep.next('.question').addClass('current');
+    }
+}
+    
+    });
+   
+</script>    
+    
+    
+</body>    
+</html>

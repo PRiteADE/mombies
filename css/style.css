@@ -1,0 +1,130 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+
+html{font-size: 10px;}
+body{font-size: 1em;}
+body,html{font-family: 'Lato',sans-serif;}
+
+
+/**--Grid--**/
+.row,.col{box-sizing:border-box}.row{margin:0 auto;padding:0; position: relative;}.row:before,.row:after{content:'';display:block}.row:after{clear:both}.row.center{text-align: center;}.row{max-width:1200px}.col{position:relative;float:left;min-height:1px}.col+.col{margin-left:1.6%}.col_1{width:6.866667%}.col_2{width:15.333334%}.col_3{width:23.800001%}.col_4{width:32.266668%}.col_5{width:40.733335%}.col_6{width:49.200002%}.col_7{width:57.666669%}.col_8{width:66.133336%}.col_9{width:74.600003%}.col_10{width:83.06667%}.col_11{width:91.533337%}.col_12{width:100%;margin-left:0;float:none}.offset{float:right}@media all and (max-width: 992px){.row{max-width: 95%; padding: 0 2.5%;}.col+.col{margin-left:0}.col_1,.col_2,.col_3,.col_4,.col_5,.col_6,.col_7,.col_8,.col_9,.col_10,.col_11,.col,.offset{width:auto;float:none;margin-left:0}}
+.col.center{margin: 0 auto; float: none; text-align: center;} .col.center .btn{margin: 0 auto;}   
+
+/**--Typography--**/
+p{font-size:1.6em; margin-bottom: 1.3em; line-height: 1.1em;}
+
+h1,h2,h3,h4,h5,h6{margin:0; padding: 0; line-height: 1; font-weight: 300; -webkit-font-smoothing:antialiased;}
+h1{font-size: 4.8em;}
+h2{font-size: 3.6em;}
+h3{font-size: 2.4em;}
+h4{font-size: 1.8em;}
+h5{font-size: 1.6em; font-weight: bold;}
+h6{font-size: 1.4em; color:#999; font-weight: bolder;}
+
+/** Quiz **/
+.question{
+ transition:0.2s all ease-in-out;  
+ overflow: hidden;
+ opacity: 0;    
+ height: 0;    
+}
+.question.current{display: block; background: #fff; box-shadow: 0px 6px 12px 0px rgba(0,0,0,0.1);height: auto; width:90%; padding: 30px; opacity: 1;}
+
+.question img{width:100%; margin-bottom: 30px;}
+
+a{text-decoration: none;}
+.answer{
+ display: block;
+ padding: 10px;
+ background: #602749 ;
+ text-align: center;
+ margin: 10px 0px;
+ color: #fff;
+ text-decoration: none;    
+ max-width: 90%;
+ border-radius: 4px;  
+text-align: left;
+ font-size: 1.6em;    
+}
+
+
+.answer input[type="radio"]{
+ display: inline-block;
+ margin-right: 16px;
+-webkit-appearance:none;
+ appearance:none;
+ -moz-appearance:none;
+ background: #fff;
+ border-radius: 50%;
+ width:20px;
+ height: 20px;    
+}
+
+.answer input[type="radio"]:checked{
+ background: #000;
+}
+
+/* styles for example, not neccessary for the plugin */
+.juma-quiz h3 {
+  line-height: 26px;
+  border-bottom: 1px solid #333;
+  margin: 0;
+  font-weight: normal;
+  font-size: 20px;
+  padding: 0 0 5px 5px; }
+.juma-quiz ul {
+  padding: 5px 0 5px 10px; }
+.juma-quiz li {
+  position: relative;
+  margin-bottom: 20px;
+  list-style: none; }
+.juma-quiz ol ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 10px 5px;
+  margin-bottom: 0;
+  border-bottom: 1px dotted #999; }
+  .juma-quiz ol ul li:focus, .juma-quiz ol ul li:focus:before {
+    background: #eee;
+    outline: none; }
+  .juma-quiz ol ul li:before {
+    opacity: 0;
+    content: "✓";
+    position: absolute;
+    top: 8px;
+    left: -18px;
+    color: #1E9B1A;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+    background-color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; }
+.juma-quiz .juma-choice {
+  color: #000;
+  font-weight: bold; }
+.juma-quiz ul li:hover:before,
+.juma-quiz ul .juma-choice:before {
+  opacity: 1; }
+.juma-quiz .juma-forward {
+  background-color: #ddd;
+  border-radius: 6px;
+  display: inline;
+  padding: 5px; }
+.juma-quiz .juma-progress {
+  background-color: #eee;
+  height: 10px; }
+.juma-quiz .juma-progress span {
+  height: 10px;
+  background-color: #333;
+  opacity: 0.7;
+  position: absolute; }
+.juma-quiz .juma-score li {
+  display: none;
+  list-style: none;
+  line-height: 24px;
+  padding: 2px 10px; }
+.juma-quiz .juma-result {
+  display: block; }

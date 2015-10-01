@@ -1,0 +1,310 @@
+<html>
+<head>
+	<title>Mombie Quiz</title>
+
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript" src="js/vendor/dombars.min.js"></script>
+
+
+</head>
+<body>
+
+
+		<style type="text/css">
+            *{font-family: 'Lato';}
+		.clearfix:after {
+		  content: "";
+		  display: table;
+		  clear: both;
+		}
+
+		.quiz {
+			max-width:960px;
+            margin: 0 auto;    
+			
+		}
+
+		.question:after {
+		  content: "";
+		  display: table;
+		  clear: both;
+		}
+
+		.question h1 {
+			text-align: center;
+			background:#7FD863;
+			font-size: 50px; 
+			font-weight:bold; 
+			padding:10px 0px;
+			color:#FFF;
+			text-shadow: 2px 2px 2px #000;
+
+		}
+
+
+		.answers {
+			margin-left: -15px;
+		}
+
+		.answer {
+    background: #DDD;
+    margin: 18px 0;
+    color: #FFF;
+    box-shadow: 1px 1px 1px #AAA;
+    padding: 9px;
+		}
+
+		.answer:hover {
+			background: #EEE;
+		}
+
+		.answer.selected {
+			background:rgb(255, 255, 112);
+		}
+
+		.answer .wrapper {
+			margin:20px;
+		}
+
+		.answer .wrapper .table {
+			display: table;
+			width:100%;
+		}
+
+		.answer .text {
+			text-shadow: 2px 2px rgba(0,0,0,0.4);
+			box-shadow: 1px 1px 1px #AAA;
+			font-weight:900;
+			text-align: center;
+			background:#7FD863;
+			height: 90px;
+			font-size: 29px; 
+			font-family: "Helvetica Neue",Arial,Helvetica,sans-serif; 
+			-webkit-font-smoothing: antialiased; 
+			font-smoothing: antialiased;
+			display:table-cell; 
+			vertical-align:middle;
+		}
+
+		.answer .checkbox {
+			height: 20px;
+			width:20px;
+			background:#FFF;
+			float:right;
+			margin:0px 20px 10px 0px;
+			box-shadow: 1px 1px 2px #000;
+			position: relative;
+		}
+		.answer.selected .checkbox:before {
+			color:#000;
+			font-size:40px;
+			content:"\2713\0020";
+			position: absolute;
+			top:-15px;
+			left:-5px;
+		}
+
+		.result {
+			display:none;
+		}
+
+		.result.selected {
+			display:block;
+		}
+		.result .wrapper {
+			padding:50px;
+			border:1px solid #AAA;
+		}
+		.result .wrapper:after {
+		  content: "";
+		  display: table;
+		  clear: both;
+		}
+		.result .title {
+			margin-bottom:20px;
+		}
+		.result .mainImage {
+			float:left;
+			margin-right: 30px;
+		}
+		.result p {
+			line-height: 1.5em;
+			margin:0px;
+		}
+
+
+	</style>
+
+
+<script id="quiz_template" type="text/x-handlebars-template">
+	<div class="quiz">
+		<div class="questions">
+			{{{outlet 'questions'}}}
+		</div>
+		<div class="results">
+			{{{outlet 'results'}}}
+		</div>
+	</div>
+</script>
+
+
+<script id="question_template" type="text/x-handlebars-template">
+	<div class="question" >
+		<h1 style="background:{{color}}">{{{title}}}</h1>
+		<div class="answers">
+				{{{outlet 'answers'}}}
+		</div>
+	</div>
+</script>
+
+<script id="answer_template" type="text/x-handlebars-template">
+	
+	<div class="answer {{#if selected}}selected{{/if}}" >
+		<div class="wrapper">
+		<div class="table">
+			<div class="text" style="background:{{parent.color}}">
+				{{text}}
+			</div>
+		</div>
+		</div>
+		<div class="footer">
+			<div class="checkbox"></div>
+		</div>
+	</div>
+	
+</script>
+
+<script id="result_template" type="text/x-handlebars-template">
+		<div class="result {{#if selected}}selected{{/if}}" >
+			<div class="wrapper">
+				<div class="title">{{parent.title}}</div>
+				<p>{{text}}</p>
+			</div>
+		</div>
+</script>
+
+
+<script type="text/javascript" src="js/PersonalityQuizzer.js"></script>
+
+<script type="text/javascript">
+	var quiz = new PersonalityQuizzer();
+	quiz.set("title","What kind of Mombie are you?")
+	quiz.addQuestion({ 
+		color: "#602749 ",
+		title: "On Hallows eve, ghosts and goblins can find you….",
+		answers: [
+			{ 
+				text: "Rushing to the store to purchase Halloween candy",
+				result: 1
+			},
+			{ 
+				text: "Carving pumpkins with your family while simultaneously baking the seeds (because, DUH, that’s the best part)",
+				result: 2
+			},
+            { 
+				text: "Glued to the mirror with your eyeliner practicing your sparkly masquerade make-up look",
+				result: 3
+			}
+		]
+	});
+	quiz.addQuestion({ 
+		color: "#602749 ",
+		title: "Your favorite Halloween movie genre is…",
+		answers: [
+			{ 
+				text: "Slasher films",
+				result: 1
+			},
+			{ 
+				text: "Psychological thriller",
+				result: 2
+			},
+            { 
+				text: "Classic films..bring it on, Dracula!",
+				result: 3
+			}
+		]
+	});
+	quiz.addQuestion({ 
+		color: "#602749 ",
+		title: "You’re asked to bring a spooktacular treat to a Halloween party. You bring…",
+		answers: [
+			{ 
+				text: "10 packs of assorted candy because that’s what Halloween is really about",
+				result: 1
+			},
+			{ 
+				text: "Candy corn Rice Krispy treats",
+				result: 2
+			},
+            { 
+				text: "Pinterest-worthy spider cupcakes…webs and all ",
+				result: 3
+			}
+		]
+	});
+
+    quiz.addQuestion({ 
+		color: "#602749 ",
+		title: "To me, Halloween means…",
+		answers: [
+			{ 
+				text: "Wait…is it really Halloween already?!",
+				result: 1
+			},
+			{ 
+				text: "A chance to totally rock those jeans 80’s jeans that I’ve kept hidden in my closet ",
+				result: 2
+			},
+            { 
+				text: "Dress up! I’ve been dying to try out that new trendy cat eye",
+				result: 3
+			}
+		]
+	});
+    
+    
+        quiz.addQuestion({ 
+		color: "#602749 ",
+		title: "Which of the below items best describes your Halloween costume style?",
+		answers: [
+			{ 
+				text: "Whatever I can find in the Halloween aisle at 3pm",
+				result: 1
+			},
+			{ 
+				text: "Animal ears – sweet and friendly",
+				result: 2
+			},
+            { 
+				text: "False eyelashes and a wig – girly and glitzy",
+				result: 3
+			}
+		]
+	});
+
+	quiz.addResults([
+		{
+			id: 1,
+			text: "You're a Last Minute Mombie"
+		},
+		{
+			id: 2,
+			text: "You're a Soccer Mombie"
+		},
+        {
+			id: 3,
+			text: "You're a Glam Mombie"
+		}
+	]);
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
